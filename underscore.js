@@ -1,5 +1,3 @@
-
-
 var _ = {
   average: function(arr){
   	var sum = 0;
@@ -128,5 +126,33 @@ var _ = {
   		objValues.push(object[i][property]);
   	}
   	return objValues;
+  },
+  each: function(array, doThis){
+  	for(var i = 0; i < array.length; i++){
+  		doThis(array[i]);
+  	}
+  },
+  compact: function(array){
+  	var newArray = [];
+  	for(var i = 0; i < array.length; i++){
+  		if(array[i] !== undefined)
+  			newArray.push(array[i]);
+  	}
+  	return newArray;
+  },
+  map: function(array, functionArray){
+  	var newArray = [];
+  	for(var i = 0; i < array.length; i++){
+  		newArray.push(functionArray(array[i]));
+  	}
+  	return newArray;
+  },
+  filter: function(array, functionArray){
+  	var newArray = [];
+  	for(var i = 0; i < array.length; i++){
+  		if(functionArray(array[i]))
+  			newArray.push(array[i]);
+  	}
+  	return newArray;
   }
 };
